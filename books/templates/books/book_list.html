@@ -1,0 +1,31 @@
+{% extends 'books/base.html' %}
+{% block title %}
+    Books List
+{% endblock title %}
+{% block content %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">Library</a>
+    </div>
+    </nav>
+    <h1 class="display-1 text-center" >All books</h1>
+    <div class="d-flex justify-content-center">
+    <div class="row w-100 justify-content-center" >
+    {% for book in book_list %}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card h-100">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ book.title }}</h5>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item text-center">Subtitle: {{ book.subtitle }}</li>
+            <li class="list-group-item text-center">Author: {{ book.author }}</li>
+            <li class="list-group-item text-center">ISBN: {{ book.isbn }}</li>
+        </ul>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+
+{% endblock content %}
